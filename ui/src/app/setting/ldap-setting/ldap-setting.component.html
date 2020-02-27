@@ -1,0 +1,49 @@
+<div class="row">
+  <form clrForm #ldapSettingForm="ngForm">
+    <div *ngIf="ldapSetting">
+      <clr-input-container>
+        <label>LDAP地址</label>
+        <input clrInput [(ngModel)]="ldapSetting['ldapUrl']" name="local_hostname" required size="80"/>
+      </clr-input-container>
+      <clr-input-container>
+        <label>绑定DN</label>
+        <input clrInput [(ngModel)]="ldapSetting['ldapUrl']" pattern="{{domain_pattern}}" name="ldapUrl" size="80"/>
+      </clr-input-container>
+      <clr-password-container>
+        <label>密码</label>
+        <input clrPassword [(ngModel)]="ldapSetting['ldapUrl']" name="ldapUrl" size="75"/>
+      </clr-password-container>
+      <clr-input-container>
+        <label>用户OU</label>
+        <input clrInput [(ngModel)]="ldapSetting['ldapUrl']" name="ldapUrl" size="80"/>
+        <clr-control-helper>选填,使用|分隔各OU</clr-control-helper>
+      </clr-input-container>
+      <clr-input-container>
+        <label>用户过滤器</label>
+        <input clrInput [(ngModel)]="ldapSetting['ldapUrl']" name="ldapUrl" required size="80"/>
+        <clr-control-helper>选填,可能的选项是(cn或uid或sAMAccountName=%(user)s)</clr-control-helper>
+      </clr-input-container>
+      <clr-textarea-container>
+        <label>映射属性</label>
+        <textarea clrTextarea [(ngModel)]="ldapSetting['ldapUrl']" name="ldapUrl" required rows="5"
+                  cols="80"></textarea>
+        <clr-control-helper>用户属性映射代表怎样将LDAP中用户属性映射到 LDAP 用户上，username, name,email 是 LDAP 的属性</clr-control-helper>
+      </clr-textarea-container>
+
+      <clr-checkbox-container>
+        <label>启动LDAP认证</label>
+        <clr-checkbox-wrapper>
+          <input type="checkbox" clrCheckbox name="ldapAuth" [(ngModel)]="ldapSetting['ldapAuth']"/>
+        </clr-checkbox-wrapper>
+      </clr-checkbox-container>
+    </div>
+  </form>
+  <div class="hr"></div>
+  <div class="form-group">
+    <button class="btn btn-info-outline" (click)="onReset()" [disabled]="ldapSettingForm.invalid">重置</button>
+    <button class="btn btn-info-outline" (click)="onTestLink()" [disabled]="ldapSettingForm.invalid">测试链接</button>
+    <button class="btn btn-info-outline" (click)="onImport()" [disabled]="ldapSettingForm.invalid">一键导入</button>
+    <button class="btn btn-info-outline" (click)="onSubmit()" [disabled]="ldapSettingForm.invalid">提交</button>
+  </div>
+</div>
+

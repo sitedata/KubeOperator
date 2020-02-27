@@ -19,3 +19,14 @@ export class SettingService {
     return this.http.post<Settings>(this.baseUrl, settings);
   }
 }
+
+@Injectable({
+  providedIn: 'root'
+})
+export class LdapSettingService {
+  baseUrl = '/api/v1/ldap-setting/';
+
+  constructor(private http: HttpClient) {
+  }
+
+}
