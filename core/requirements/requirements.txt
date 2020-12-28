@@ -91,3 +91,5 @@ elasticsearch-dsl==7.1.0
 CMRESHandler==1.0.0
 django-proxy==1.2.1
 flower==0.9.3
+
+autobahn>=20.12.3 # not directly required, pinned by Snyk to avoid a vulnerability
